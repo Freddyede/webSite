@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7ce54c7-d766-4212-a447-0b6f1d2822f7" name="Default Changelist" comment="" />
+    <list default="true" id="d7ce54c7-d766-4212-a447-0b6f1d2822f7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/templates/components/menuLeft.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/menuLeft.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/components/menuLeft.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="252">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -98,12 +100,12 @@
         <option value="$PROJECT_DIR$/src/Form/PagesRepository.php" />
         <option value="$PROJECT_DIR$/templates/pages/modify.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/PagesController.php" />
-        <option value="$PROJECT_DIR$/templates/components/menuLeft.html.twig" />
         <option value="$PROJECT_DIR$/templates/pages/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/components/navbar.html.twig" />
         <option value="$PROJECT_DIR$/templates/Back/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/BackOfficeController.php" />
+        <option value="$PROJECT_DIR$/templates/components/menuLeft.html.twig" />
       </list>
     </option>
   </component>
@@ -316,12 +318,12 @@
       <workItem from="1559330933048" duration="3477000" />
       <workItem from="1559371231455" duration="2393000" />
       <workItem from="1559580835364" duration="1845000" />
-      <workItem from="1559582863695" duration="599000" />
+      <workItem from="1559582863695" duration="848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20354000" />
+    <option name="totallyTimeSpent" value="20603000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -334,6 +336,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27534625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -490,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/components/menuLeft.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="252">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
