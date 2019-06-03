@@ -62,4 +62,17 @@ class PagesController extends AbstractController {
             'menuLeft'=>$menuLeft,
         ));
     }
+
+    /**
+     * @Route("/page/delete/{id}", name="page_delete")
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function deletePage($id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $product = $this->getDoctrine()->getRepository(Pages::class)->find($id);
+        $entityManager->remove($product);
+        $entityManager->flush();
+        return $this->redirectToRoute('back-office_pages_accueil');
+    }
 }
