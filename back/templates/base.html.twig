@@ -23,10 +23,8 @@
                     {% include 'components/menuLeft.html.twig' %}
                 </div>
             {% endif %}
-            <div class="{% if menuLeft is not null %}col-xs-8 col-xs-offset-1{% else %}col-12{% endif %}">
-                <div class="row">
-                    {% block content %}{% endblock %}
-                </div>
+            <div class="{% if menuLeft is not null %}col-xs-8 col-xs-offset-1{% else %}col-xs-12 col-md-12 col-lg-10 col-lg-offset-1{% endif %}">
+                {% block content %}{% endblock %}
             </div>
         </div>
     </div>
