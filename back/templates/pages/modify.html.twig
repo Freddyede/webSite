@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {{ form_start(form) }}
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 text-center">
+                {{ form_label(form.titre) }}
+                {{ form_widget(form.titre) }}
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-12">
+                        {{ form_label(form.images) }}
+                        {{ form_widget(form.images) }}
+                    </div>
+                    <div class="col-12">
+                        {{ form_label(form.hyperLink) }}
+                        {{ form_widget(form.hyperLink) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-12">
+                        {{ form_label(form.content) }}
+                        {{ form_widget(form.content) }}
+                    </div>
+                    <div class="col-12">
+                        {{ form_label(form.hyperLinkContent) }}
+                        {{ form_widget(form.hyperLinkContent) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                {{ form_widget(form.submit) }}
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
