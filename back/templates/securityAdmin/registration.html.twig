@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block content %}
+    <h1>Registration :</h1>
+    <div class="row">
+        {{ form_start(form) }}
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{  form_errors(form.mail) }}
+                    {{ form_widget(form.mail) }}
+                </div>
+                <div class="col-xs-12">
+                    {{  form_errors(form.userName) }}
+                    {{ form_widget(form.userName) }}
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{  form_errors(form.password) }}
+                    {{ form_widget(form.password) }}
+                </div>
+                <div class="col-xs-12">
+                    {{  form_errors(form.confirm_password) }}
+                    {{ form_widget(form.confirm_password) }}
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 text-center">
+            {{ form_widget(form.registration) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
