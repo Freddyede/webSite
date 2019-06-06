@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass="App\Repository\PagesRepository")
+ * @ORM\Entity()
  */
 class Pages
 {
