@@ -5,7 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Pages;
-use App\Form\PagesRepository;
+use App\Form\PagesType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,19 +39,15 @@ class PagesController extends AbstractController {
         if($id != -1){
             $page = $this->getDoctrine()->getRepository(Pages::class)->find($id);
             $titre = 'Modification'.' '.$page->getTitre();
-            $menuLeft = true;
         }else{
             $titre = 'Création '.$this->titre;
             $page = new Pages();
-            $menuLeft = null;
         }
-        $form = $this->createForm(PagesRepository::class,$page);
+        $form = $this->createForm(PagesType::class,$page);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
-            $pages = $form->getData();
-            $entityManager->persist($pages);
+            $page = $form->getData();
+            $entityManager->persist($page);
             $entityManager->flush();
             return $this->redirectToRoute('back-office_pages_accueil');
         }
@@ -59,7 +55,20 @@ class PagesController extends AbstractController {
             'titre'=>$titre,
             'page'=>$page,
             'form'=>$form->createView(),
-            'menuLeft'=>$menuLeft,
+            'menuLeft'=>null,
         ));
+    }
+
+    /**
+     * @Route("/page/delete/{id}", name="page_delete")
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function deletePage($id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $product = $this->getDoctrine()->getRepository(Pages::class)->find($id);
+        $entityManager->remove($product);
+        $entityManager->flush();
+        return $this->redirectToRoute('back-office_pages_accueil');
     }
 }

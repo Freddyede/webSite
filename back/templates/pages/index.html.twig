@@ -19,14 +19,19 @@
                 <td>
                     <div class="col-xs-12">
                         <div class="row">
-                            <div class="col-xs-6 col-md-6 col-lg-6 text-center">
+                            <div class="col-xs-12 col-md-4 col-lg-4 text-center">
                                 <a href="{{ path('back-office_page_modify',{id:page.id}) }}">
                                     <i class="favicon fa fa-pencil fa-2x"></i>
                                 </a>
                             </div>
-                            <div class="col-xs-12 col-md-6 col-lg-6 text-center">
+                            <div class="col-xs-12 col-md-4 col-lg-4 text-center">
                                 <a href="#">
                                     <i class="favicon fa fa-line-chart fa-2x"></i>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-md-4 col-lg-4 text-center">
+                                <a href="{{ path('back-office_page_delete',{id:page.id}) }}">
+                                    <i class="favicon fa fa-trash fa-2x" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
