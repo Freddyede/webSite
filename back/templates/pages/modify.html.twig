@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {{ form_start(form) }}
+    {% if menuLeft is not null %}
     <div class="col-12">
         <div class="row">
+            {{ form_start(form) }}
             <div class="col-12 text-center">
                 {{ form_label(form.titre) }}
                 {{ form_widget(form.titre) }}
@@ -34,7 +35,48 @@
             <div class="col-12 text-center">
                 {{ form_widget(form.submit) }}
             </div>
+            {{ form_end(form) }}
         </div>
     </div>
-    {{ form_end(form) }}
+    {% else %}
+        <div class="row">
+            <div class="col-xs-12">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-12 text-center">
+                        {{ form_label(form.titre) }}
+                        {{ form_widget(form.titre) }}
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form_label(form.images) }}
+                                {{ form_widget(form.images) }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_label(form.hyperLink) }}
+                                {{ form_widget(form.hyperLink) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form_label(form.content) }}
+                                {{ form_widget(form.content) }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_label(form.hyperLinkContent) }}
+                                {{ form_widget(form.hyperLinkContent) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        {{ form_widget(form._token) }}
+                        {{ form_widget(form.submit) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
