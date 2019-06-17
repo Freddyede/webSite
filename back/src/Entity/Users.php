@@ -11,8 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
-class Users
-{
+class Users {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -41,13 +40,13 @@ class Users
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Mesage", mappedBy="User_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Messages", mappedBy="users")
      */
-    private $mesages;
+    private $message;
 
     public function __construct()
     {
-        $this->mesages = new ArrayCollection();
+        $this->message = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -91,6 +90,9 @@ class Users
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPassword(): ?string
     {
         return $this->password;
@@ -98,36 +100,37 @@ class Users
 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $newPassword = hash('ripemd160',$password);
+        $this->password = $newPassword;
 
         return $this;
     }
 
     /**
-     * @return Collection|Mesage[]
+     * @return Collection|Messages[]
      */
-    public function getMesages(): Collection
+    public function getMessage(): Collection
     {
-        return $this->mesages;
+        return $this->message;
     }
 
-    public function addMesage(Mesage $mesage): self
+    public function addMessage(Messages $message): self
     {
-        if (!$this->mesages->contains($mesage)) {
-            $this->mesages[] = $mesage;
-            $mesage->setUserId($this);
+        if (!$this->message->contains($message)) {
+            $this->message[] = $message;
+            $message->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removeMesage(Mesage $mesage): self
+    public function removeMessage(Messages $message): self
     {
-        if ($this->mesages->contains($mesage)) {
-            $this->mesages->removeElement($mesage);
+        if ($this->message->contains($message)) {
+            $this->message->removeElement($message);
             // set the owning side to null (unless already changed)
-            if ($mesage->getUserId() === $this) {
-                $mesage->setUserId(null);
+            if ($message->getUsers() === $this) {
+                $message->setUsers(null);
             }
         }
 
