@@ -1,0 +1,23 @@
+<div class="container-fluid mb-5 mt-5 ml-5">
+  <form novalidate>
+    <div class="form-group">
+      <label for="nameRegistration">name</label>
+      <input type="text" class="form-control" id="nameRegistration" name="mail" [(ngModel)]="registrationObject.name">
+    </div>
+    <div class="form-group">
+      <label for="usernameRegistration">User Name</label>
+      <input type="text" class="form-control" id="usernameRegistration" name="mail" [(ngModel)]="registrationObject.username">
+    </div>
+    <div class="form-group">
+      <label for="mailRegistration">Mail</label>
+      <input type="text" class="form-control" id="mailRegistration" name="mail" [(ngModel)]="registrationObject.mail">
+    </div>
+    <div class="form-group">
+      <label for="passwordRegistration">Password</label>
+      <input type="text" class="form-control" id="passwordRegistration" name="password" [(ngModel)]="registrationObject.password">
+    </div>
+    <div class="col-xs-12 text-center">
+      <button type="button" (click)="setValeurRegistration();registrationActive = false;">Submit</button>
+    </div>
+  </form>
+</div>
