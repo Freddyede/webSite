@@ -63,7 +63,7 @@ class Pages
         if (preg_match('/(gif|jpg|png)$/i',$images)){
             $this->images = $images;
         }else{
-            $this->images = 'https://img-0.journaldunet.com/YY8e7EtrRfdIfec9XwoXRcVylTI=/1280x/smart/67f08fc7bfa04fedbb78badd1df132b5/ccmcms-jdn/11048473.jpg';
+            $this->images = '';
         }
 
         return $this;

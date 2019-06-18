@@ -10,12 +10,10 @@ import { PagesServices } from '../../services/pages.services';
 export class PageComponent implements OnInit {
   @Input() pages = [];
   constructor(private PagesService: PagesServices) { }
-  classes = [];
   ngOnInit() {
     this.PagesService.getPages().subscribe((data) => {
       if (data.length !== 0) {
         if (data.length <= 6) {
-          console.log('not sup 6');
         }
         if (data.length > 6) {
           console.log('sup 6');

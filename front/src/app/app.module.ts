@@ -10,7 +10,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './underComponents/navbar/navbar.component';
 import { PageComponent } from './underComponents/page/page.component';
-import { PageDetailsComponent } from './page-details/page-details.component';
+import { PageDetailsComponent } from '../underUnderComponents/page-details/page-details.component';
+import { DetailsUserComponent } from './underComponents/details-user/details-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PageDetailsComponent } from './page-details/page-details.component';
     HomePageComponent,
     NavbarComponent,
     PageComponent,
-    PageDetailsComponent
+    PageDetailsComponent,
+    DetailsUserComponent,
   ],
   imports: [
     BrowserModule,

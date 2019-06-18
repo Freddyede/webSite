@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       });
     }
     if (this.storage !== null) {
-      this.router.navigate(['/news']);
+      this.router.navigate(['/pages']);
     }
   }
   ngOnInit() {

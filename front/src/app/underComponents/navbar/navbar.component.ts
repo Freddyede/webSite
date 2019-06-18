@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
   @Input() titreNavbar: string;
   afficheLogout = false;
   afficheLogin = false;
+  token: string;
+  userId: number;
   constructor(private router: Router) { }
   ngOnInit() {
     if (localStorage.getItem('token') !== null) {
@@ -20,9 +22,14 @@ export class NavbarComponent implements OnInit {
       this.afficheLogin = true;
     }
   }
+  getToken() {
+    this.token = localStorage.getItem('token');
+    this.userId = Number(this.token);
+    console.log(this.userId);
+  }
   desactiveToken() {
     localStorage.removeItem('token');
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then();
   }
 
 }

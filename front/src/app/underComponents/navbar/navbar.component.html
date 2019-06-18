@@ -28,7 +28,11 @@
       </li>
     </ul>
     <div *ngIf="afficheLogin">
-      <a href="" routerLink="login"><button class="btn btn-success">Login</button></a>
+      <a routerLink="login"><button (click)="getToken()" class="btn btn-success">Login</button></a>
+    </div>
+    {{userId}}
+    <div *ngIf="afficheLogout">
+      <a [routerLink]="['users', userId]"><button class="btn btn-info">Mes informations</button></a>
     </div>
     <div *ngIf="afficheLogout">
       <button (click)="desactiveToken()" class="btn btn-danger">Logout</button>
