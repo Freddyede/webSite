@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 
 
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   @Input() titreNavbar: string;
   afficheLogout = false;
   afficheLogin = false;
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit() {
     if (localStorage.getItem('token') !== null) {
       this.afficheLogout = true;
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
   }
   desactiveToken() {
     localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
 }

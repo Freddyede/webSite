@@ -28,11 +28,10 @@
       </li>
     </ul>
     <div *ngIf="afficheLogin">
-      <a href="" routerLink="login"><button>Login</button></a>
+      <a href="" routerLink="login"><button class="btn btn-success">Login</button></a>
     </div>
     <div *ngIf="afficheLogout">
-      <button (click)="desactiveToken()">Logout</button>
+      <button (click)="desactiveToken()" class="btn btn-danger">Logout</button>
     </div>
   </div>
 </nav>
-<router-outlet></router-outlet>

@@ -14,19 +14,15 @@ export class HomePageComponent implements OnInit {
   title = 'Registration';
   pages = [];
   AffichePage = false;
-  // @ts-ignore
   ngOnInit() {
     this.PagesService.getPages().subscribe((data) => {
-      // @ts-ignore
-      // tslint:disable-next-line:prefer-for-of
-      for (const i = 0; i < data.length; i++) {
+      let i = 0;
+      while (i < data.length) {
         this.pages.push(data[i]);
+        i++;
       }
     });
-    if (localStorage.getItem('token') !== null){
-      this.AffichePage = true;
-    } else {
-      this.AffichePage = false;
-    }
+    this.AffichePage = localStorage.getItem('token') !== null;
+
   }
 }

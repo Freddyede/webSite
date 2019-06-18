@@ -1,15 +1,26 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { PagesServices } from '../../services/pages.services';
 
 @Component({
+  providers: [PagesServices],
   selector: 'app-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
   @Input() pages = [];
-  constructor() { }
-
+  constructor(private PagesService: PagesServices) { }
+  classes = [];
   ngOnInit() {
-    console.log(this.pages);
+    this.PagesService.getPages().subscribe((data) => {
+      if (data.length !== 0) {
+        if (data.length <= 6) {
+          console.log('not sup 6');
+        }
+        if (data.length > 6) {
+          console.log('sup 6');
+        }
+      }
+    });
   }
 }

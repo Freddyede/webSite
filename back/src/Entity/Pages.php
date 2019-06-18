@@ -43,6 +43,11 @@ class Pages
      */
     private $hyperLinkContent;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subContent;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,7 +60,11 @@ class Pages
 
     public function setImages(?string $images): self
     {
-        $this->images = $images;
+        if (preg_match('/(gif|jpg|png)$/i',$images)){
+            $this->images = $images;
+        }else{
+            $this->images = 'https://img-0.journaldunet.com/YY8e7EtrRfdIfec9XwoXRcVylTI=/1280x/smart/67f08fc7bfa04fedbb78badd1df132b5/ccmcms-jdn/11048473.jpg';
+        }
 
         return $this;
     }
@@ -104,6 +113,18 @@ class Pages
     public function setHyperLinkContent(string $hyperLinkContent): self
     {
         $this->hyperLinkContent = $hyperLinkContent;
+
+        return $this;
+    }
+
+    public function getSubContent(): ?string
+    {
+        return $this->subContent;
+    }
+
+    public function setSubContent(string $subContent): self
+    {
+        $this->subContent = $subContent;
 
         return $this;
     }
