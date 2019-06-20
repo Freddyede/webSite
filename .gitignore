@@ -328,29 +328,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-
-#####################
-#    BACK-OFFICE    #
-#####################
-###> symfony/framework-bundle ###
-back/.env.local
-back/.env.local.php
-back/.env.*.local
-back/public/bundles/
-back/var/
-back/vendor/
-###< symfony/framework-bundle ###
-
-###> symfony/phpunit-bridge ###
-back/.phpunit
-back/phpunit.xml
-###< symfony/phpunit-bridge ###
-
-###> symfony/web-server-bundle ###
-back/.web-server-pid
-###< symfony/web-server-bundle ###
-
-###> lexik/jwt-authentication-bundle ###
-back/config/jwt/*.pem
-###< lexik/jwt-authentication-bundle ###
-back/.env
