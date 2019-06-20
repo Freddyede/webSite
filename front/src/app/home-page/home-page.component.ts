@@ -8,25 +8,19 @@ import {PagesServices} from '../services/pages.services';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
   constructor(private PagesService: PagesServices) {
   }
-  title = 'Registration';
+  title = 'Pages';
   pages = [];
-  AffichePage = false;
-  // @ts-ignore
+  sawPage = false;
   ngOnInit() {
     this.PagesService.getPages().subscribe((data) => {
-      // @ts-ignore
-      // tslint:disable-next-line:prefer-for-of
-      for (const i = 0; i < data.length; i++) {
+      let i = 0;
+      while (i < data.length) {
         this.pages.push(data[i]);
+        i++;
       }
     });
-    if (localStorage.getItem('token') !== null){
-      this.AffichePage = true;
-    } else {
-      this.AffichePage = false;
-    }
+    this.sawPage = localStorage.getItem('token') !== null;
   }
 }

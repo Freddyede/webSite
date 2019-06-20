@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import {MessageLoginService} from '../../services/message-login.service';
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
@@ -7,9 +7,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PageComponent implements OnInit {
   @Input() pages = [];
-  constructor() { }
-
+  title = 'Pages';
+  successMessage: string;
+  logged = false;
+  constructor(private Message: MessageLoginService) { }
+  deleteAlert() {
+    this.successMessage = null;
+  }
   ngOnInit() {
-    console.log(this.pages);
+    this.successMessage = this.Message.getMessage();
+    this.logged = localStorage.getItem('token') !== null;
   }
 }

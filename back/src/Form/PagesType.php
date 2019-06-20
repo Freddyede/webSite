@@ -10,12 +10,18 @@ class PagesType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('images',TextareaType::class, array(
+                'label'=>'images: jpg,png,gif',
                 'required' => false,
                 'attr'=>array(
                     'class'=>'form-control'
                 )
                 ))
             ->add('content',TextareaType::class,array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                ),
+            ))
+            ->add('subContent',TextType::class,array(
                 'attr'=>array(
                     'class'=>'form-control'
                 ),

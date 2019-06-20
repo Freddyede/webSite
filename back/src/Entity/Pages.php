@@ -34,7 +34,7 @@ class Pages
     private $titre;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+             * @ORM\Column(type="text", nullable=true)
      */
     private $hyperLink;
 
@@ -42,6 +42,11 @@ class Pages
      * @ORM\Column(type="text")
      */
     private $hyperLinkContent;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subContent;
 
     public function getId(): ?int
     {
@@ -55,7 +60,11 @@ class Pages
 
     public function setImages(?string $images): self
     {
-        $this->images = $images;
+        if (preg_match('/(gif|jpg|png)$/i',$images)){
+            $this->images = $images;
+        }else{
+            $this->images = '';
+        }
 
         return $this;
     }
@@ -104,6 +113,18 @@ class Pages
     public function setHyperLinkContent(string $hyperLinkContent): self
     {
         $this->hyperLinkContent = $hyperLinkContent;
+
+        return $this;
+    }
+
+    public function getSubContent(): ?string
+    {
+        return $this->subContent;
+    }
+
+    public function setSubContent(string $subContent): self
+    {
+        $this->subContent = $subContent;
 
         return $this;
     }

@@ -59,7 +59,7 @@ class Users {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name)
     {
         $this->name = $name;
 
@@ -71,7 +71,7 @@ class Users {
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername(string $username)
     {
         $this->username = $username;
 
@@ -83,7 +83,7 @@ class Users {
         return $this->mail;
     }
 
-    public function setMail(string $mail): self
+    public function setMail(string $mail)
     {
         $this->mail = $mail;
 
@@ -98,11 +98,14 @@ class Users {
         return $this->password;
     }
 
+    /**
+     * @param string $password
+     * @return Users
+     */
     public function setPassword(string $password): self
     {
-        $newPassword = hash('ripemd160',$password);
+        $newPassword = base64_encode($password);
         $this->password = $newPassword;
-
         return $this;
     }
 
@@ -114,7 +117,7 @@ class Users {
         return $this->message;
     }
 
-    public function addMessage(Messages $message): self
+    public function addMessage(Messages $message)
     {
         if (!$this->message->contains($message)) {
             $this->message[] = $message;
@@ -124,7 +127,7 @@ class Users {
         return $this;
     }
 
-    public function removeMessage(Messages $message): self
+    public function removeMessage(Messages $message)
     {
         if ($this->message->contains($message)) {
             $this->message->removeElement($message);
