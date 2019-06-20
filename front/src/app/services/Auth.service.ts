@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BACK} from '../constants/.gitignore/back.const';
+import {BACK} from '../constants/back.const';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()

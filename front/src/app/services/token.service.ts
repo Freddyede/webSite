@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BACK} from '../constants/.gitignore/back.const';
+import {BACK} from '../constants/back.const';
 
 @Injectable({
   providedIn: 'root'
