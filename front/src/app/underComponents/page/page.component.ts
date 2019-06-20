@@ -1,24 +1,21 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { PagesServices } from '../../services/pages.services';
-
+import { Component, Input, OnInit } from '@angular/core';
+import {MessageLoginService} from '../../services/message-login.service';
 @Component({
-  providers: [PagesServices],
   selector: 'app-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
   @Input() pages = [];
-  constructor(private PagesService: PagesServices) { }
+  title = 'Pages';
+  successMessage: string;
+  logged = false;
+  constructor(private Message: MessageLoginService) { }
+  deleteAlert() {
+    this.successMessage = null;
+  }
   ngOnInit() {
-    this.PagesService.getPages().subscribe((data) => {
-      if (data.length !== 0) {
-        if (data.length <= 6) {
-        }
-        if (data.length > 6) {
-          console.log('sup 6');
-        }
-      }
-    });
+    this.successMessage = this.Message.getMessage();
+    this.logged = localStorage.getItem('token') !== null;
   }
 }

@@ -34,7 +34,7 @@ class Pages
     private $titre;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+             * @ORM\Column(type="text", nullable=true)
      */
     private $hyperLink;
 

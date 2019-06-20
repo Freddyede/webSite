@@ -8,12 +8,11 @@ import {PagesServices} from '../services/pages.services';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
   constructor(private PagesService: PagesServices) {
   }
-  title = 'Registration';
+  title = 'Pages';
   pages = [];
-  AffichePage = false;
+  sawPage = false;
   ngOnInit() {
     this.PagesService.getPages().subscribe((data) => {
       let i = 0;
@@ -22,7 +21,6 @@ export class HomePageComponent implements OnInit {
         i++;
       }
     });
-    this.AffichePage = localStorage.getItem('token') !== null;
-
+    this.sawPage = localStorage.getItem('token') !== null;
   }
 }

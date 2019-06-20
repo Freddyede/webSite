@@ -5,14 +5,14 @@ import {IPages} from '../Interface/IPages';
 @Injectable()
 
 export class PagesServices {
-  private urlApi = 'http://localhost:8000/api/pages';
   private url = 'http://localhost:8000/pages';
+  private apiUrl = 'http://localhost:8000/api/pages';
   constructor(private http: HttpClient) {}
 
   getPages(): Observable <IPages> {
     return this.http.get<IPages>(this.url);
   }
   getPage(id): Observable <IPages> {
-    return this.http.get<IPages>(this.urlApi + '/' + id);
+    return this.http.get<IPages>(this.apiUrl + '/' + id);
   }
 }

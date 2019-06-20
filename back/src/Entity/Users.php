@@ -104,7 +104,7 @@ class Users {
      */
     public function setPassword(string $password): self
     {
-        $newPassword = hash('ripemd160',$password);
+        $newPassword = base64_encode($password);
         $this->password = $newPassword;
         return $this;
     }

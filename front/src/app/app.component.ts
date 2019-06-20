@@ -5,14 +5,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Accueil';
   afficheAccueil = false;
   constructor() {}
   ngOnInit() {
-    if (localStorage.getItem('token') !== null) {
-      this.afficheAccueil = true;
-    } else {
-      this.afficheAccueil = false;
-    }
+    this.afficheAccueil = localStorage.getItem('token') !== null;
   }
 }
