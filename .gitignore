@@ -1,4 +1,2 @@
-
-back/src/Authentification/
-
-front/src/app/constants/
+back/src/Authentification/*
+front/src/app/constants/*
